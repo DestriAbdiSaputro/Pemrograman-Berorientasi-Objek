@@ -23,9 +23,9 @@ public class Platinum extends Member  {
         super.inputPeminjaman();
     }
     
-    public void calculatedServices() {
-        this.poin = 10 * banyakHari;
-        this.totalSewa = this.biayaSewa * this.banyakHari;
+    public void hitung() {
+        this.poin = 10 * selisihHari;
+        this.totalSewa = this.biayaSewa * this.selisihHari;
         int diskon = this.totalSewa * this.diskon/100;
         this.totalSewa -= diskon;
     }
