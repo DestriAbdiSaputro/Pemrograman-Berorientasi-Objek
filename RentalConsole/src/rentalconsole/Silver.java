@@ -21,9 +21,9 @@ public class Silver extends Member {
         super.inputPeminjaman();
     }
     
-    public void calculatedServices() {
-        this.poin = 1 * banyakHari;
-        this.totalSewa = this.biayaSewa * this.banyakHari;
+    public void hitung() {
+        this.poin = 1 * selisihHari;
+        this.totalSewa = this.biayaSewa * this.selisihHari;
         int diskon = this.totalSewa * this.diskon/100;
         this.totalSewa -= diskon;
     }
