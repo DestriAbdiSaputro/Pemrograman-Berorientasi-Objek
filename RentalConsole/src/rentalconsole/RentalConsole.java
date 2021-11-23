@@ -23,17 +23,17 @@ public class RentalConsole {
         switch(member.jenis) {
             case "Silver":
                 Silver silver = new Silver(member);
-                silver.calculatedServices();
+                silver.hitung();
                 silver.output();
                 break;
             case "Gold":
                 Gold gold = new Gold(member);
-                gold.calculatedServices();
+                gold.hitung();
                 gold.output();
                 break;
             case "Platinum":
                 Platinum platinum = new Platinum(member);
-                platinum.calculatedServices();
+                platinum.hitung();
                 platinum.output();
                 break;
         }      
