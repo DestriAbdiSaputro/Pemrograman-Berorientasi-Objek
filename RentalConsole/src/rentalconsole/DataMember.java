@@ -19,7 +19,6 @@ public class DataMember {
         this.nama = nama;
         this.jenis = jenis;
     }
-    
     void print() {
         System.out.println("ID Member       : " + this.id);
         System.out.println("Nama Member     : " + this.nama);
