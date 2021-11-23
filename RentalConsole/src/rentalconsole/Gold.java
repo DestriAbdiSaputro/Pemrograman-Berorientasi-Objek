@@ -22,9 +22,9 @@ public class Gold extends Member {
         super.inputPeminjaman();
     }
     
-    public void calculatedServices() {
-        this.poin = 5 * banyakHari;
-        this.totalSewa = this.biayaSewa * this.banyakHari;
+    public void hitung() {
+        this.poin = 5 * selisihHari;
+        this.totalSewa = this.biayaSewa * this.selisihHari;
         int diskon = this.totalSewa * this.diskon/100;
         this.totalSewa -= diskon;
     }
