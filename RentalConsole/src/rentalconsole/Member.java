@@ -11,21 +11,21 @@ import java.time.temporal.ChronoUnit;
 
 /**
  *
- * @author WIN10
+ * @author Lenovo
  */
 public class Member {
     public DataMember member;
     protected int biayaSewa; 
     protected LocalDate tglPinjam;
     protected LocalDate tglKembali;
-    protected int banyakHari;
+    protected int selisihHari;
     ArrayList<DataMember> dataMember = new ArrayList<>();
     
     public void tambahMember(DataMember data) {
         this.dataMember.add(data);
     }
     
-    void cariBarang(String id){
+    void cariMember(String id){
         boolean finded = false;
         int index = -1;
         for(int i=0; i<this.dataMember.size(); i++){
@@ -47,7 +47,7 @@ public class Member {
     public DataMember inputMember() {
         Scanner input = new Scanner(System.in);
         System.out.print("Masukkan ID Member                  : ");
-        this.cariBarang(input.nextLine());
+        this.cariMember(input.nextLine());
         
         return this.member;
     }
@@ -56,23 +56,22 @@ public class Member {
         Scanner input = new Scanner(System.in);
         System.out.print("Masukkan Tanggal Pinjam (1-31)      : ");
         int tglPinjam = input.nextInt();
-        System.out.print("Masukkan Bulan Pinjam   (1-12)      : ");
+        System.out.print("Masukkan Bulan Pinjam (1-12)        : ");
         int blnPinjam = input.nextInt();
         System.out.print("Masukkan Tahun Pinjam               : ");
         int thnPinjam = input.nextInt();
-        this.tglPinjam = LocalDate.of(thnPinjam, blnPinjam, tglPinjam);
-        
         System.out.print("Masukkan Tanggal Kembali (1-31)     : ");
         int tglKembali = input.nextInt();
-        System.out.print("Masukkan Bulan Kembali   (1-12)     : ");
+        System.out.print("Masukkan Bulan Kembali (1-12)       : ");
         int blnKembali = input.nextInt();
         System.out.print("Masukkan Tahun Kembali              : ");
         int thnKembali = input.nextInt();
+        this.tglPinjam = LocalDate.of(thnPinjam, blnPinjam, tglPinjam);
         this.tglKembali = LocalDate.of(thnKembali, blnKembali, tglKembali);
         
-        this.banyakHari = (int) ChronoUnit.DAYS.between(this.tglPinjam, this.tglKembali);
+        this.selisihHari = (int) ChronoUnit.DAYS.between(this.tglPinjam, this.tglKembali);
         System.out.println();
-        if(this.banyakHari < 0) {
+        if(this.selisihHari < 0) {
             System.out.println("Tanggal Pinjam Salah!");
             System.exit(0);
         }
@@ -82,10 +81,7 @@ public class Member {
         this.member.print();
         System.out.println("Tanggal Pinjam      : " + this.tglPinjam);
         System.out.println("Tanggal Kembali     : " + this.tglKembali);
-        System.out.println("Lama Sewa           : " + this.banyakHari + " hari");
+        System.out.println("Lama Sewa           : " + this.selisihHari + " hari");
         System.out.println();
     }
-    
-    
-    
 }
